@@ -8,10 +8,10 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-import lombok.Getter;
+import lombok.Data;
 
+@Data
 @Document(indexName = "posts")
-@Getter
 public class Post {
 	@Id
 	private String id;
@@ -42,15 +42,4 @@ public class Post {
 		this.lastModifiedAt = OffsetDateTime.now();
 	}
 
-	@Override
-	public String toString() {
-		return "Post{" +
-			"id='" + id + '\'' +
-			", title='" + title + '\'' +
-			", content='" + content + '\'' +
-			", author='" + author + '\'' +
-			", createdAt=" + createdAt +
-			", lastModifiedAt=" + lastModifiedAt +
-			'}';
-	}
 }
